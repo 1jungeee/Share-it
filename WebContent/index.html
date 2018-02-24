@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Share-it</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function() {
+        $(window).resize(function() {
+            $('#login').css('height', $(window).height())
+        }).resize();
+
+        $('nav').click(function () {
+            if($(window).width() <= 900) {
+                $('nav > ul').slideToggle();
+            }
+        });
+    })
+    
+    function checkValue()
+        {
+        	
+        	if( login_id.value ==""){
+        		alert("아이디를 입력하세요"); 
+        			login_id.focus();
+        		return false
+        	}
+        	if( login_pw.value ==""){
+        		alert("비밀번호를 입력하세요");  
+        			login_pw.focus();
+        		return false
+        	}
+        }  
+</script>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <a class="logo" href="http://localhost:8080/ShareIt_2/index.html"><img src="image/logo.png"></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="info">사이트 정보</a></li>
+                <li><a href="#login" class="login">로그인</a></li>
+                <li><a href="#signup" class="signup">회원가입</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="login">
+        <div class="inner">
+            <div class="text">
+                <h1 class="englishbold">Welcome back to Share-it !</h1>
+                <h2 class="slogan">Share-it의 회원이시라면 지금 바로 로그인하세요.</h2>
+            </div>
+            <form action="login.jsp" onsubmit="return checkValue()" name="loginInfo">
+                
+                <label for="email" class="english">Username (or Email)</label>
+	                <input type="text" placeholder="leviosa113@gmail.com" class="form-control" id="login_id" name="login_id">
+                
+                 <label for="pwd" class="english">Password</label>
+	                <input type="password" placeholder="●●●●●●●●●●●●" class="form-control" id="login_pw" name="login_pw">
+                
+                <div class="checkbox">
+                    <label><input type="checkbox"><span>로그인 상태 유지하기</span></label>
+                </div>
+                <div class="submit">
+                    <button type="submit" class="btn">로그인</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="signup">
+        <div class="inner">
+            <div class="text">
+                <h1 class="englishbold">Share-it lets you work more collaboratively and get more done.</h1>
+                <h3 class="slogan">
+                    Share-it이 제공하는 보드, 리스트 그리고 카드는
+                    당신의 프로젝트를 더욱 재밌고 유연하고 건설적인 방향으로 구성할 수 있게 합니다.
+                    <br><br>
+                    지금 바로 Share-it의 회원이 되어보세요!
+                    <br>
+                    Share-it이 팀원들과의 협업을 도와줄 훌륭한 동반자가 될 것입니다.
+                </h3>
+            </div>
+            <div class="img">
+                <img src="image/shareit-collaborate-home.png">
+            </div>
+           <form action="join.jsp">
+                <label for="n_name" class="english">Name</label>
+                    <input type="text" placeholder="Wonjung Kim" class="form-control" id="join_id" name="join_id" required maxlength="50"">
+                
+                <label for="n_email" class="english">Email</label>
+                    <input type="email" placeholder="leviosa113@gmail.com" class="form-control" id="join_email" name="join_email" required>
+                
+                 <label for="n_pwd" class="english">Password</label>
+                    <input type="password" placeholder="●●●●●●●●●●●●" class="form-control" id="join_pw" name="join_pw" required>
+                
+                
+                <div class="submit">
+                    <button type="submit" class="btn">회원가입</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+
+    </footer>
+</div>
+</body>
+</html>

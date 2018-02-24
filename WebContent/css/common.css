@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:700|Montserrat+Alternates:400,500,800');
+
+/* reset */
+body, div, p, ul, ol, h1, h2, h3, h4, h5, h6 {margin:0; padding:0; font-size:1em;}
+ul, ol {list-style:none;}
+a {text-decoration:none; color:#9c9c9c;}
+a:hover {text-decoration:none; color:#eeeeee;}
+
+/* header */
+header {width:80%; height:40px; padding:20px 10%; background-color:#222222; position:fixed; z-index:200;}
+header .logo {position:absolute; top:4px; left:10%;}
+header nav {float:right; height:0;}
+header nav li {float:left; margin-left:45px;}
+header nav a {width:35px; font-size:18px; height:35px; background:url('../image/index_icons.png') no-repeat; text-indent:-99999px; display:block; overflow: hidden;}
+.b_add {background-position-y:-160px;}
+.membership {background-position-y:-200px;}
+header nav .info {background-position-y:-80px;}
+header nav .login {background-position-y:-40px;}
+header nav .info:hover {background-position:-40px -80px;}
+header nav .login:hover {background-position:-40px -40px;}
+header nav .signup:hover {background-position-x:-40px;}
+.board header {width:90%; padding:20px 5%;}
+.board header .logo {position:absolute; top:4px; left:50%; margin-left:-73.5px;}
+.board header h2 {position:absolute; top:80px; left:0; padding:5px 0; width:100%; text-align:center; background-color:#f7DD00;}
+
+/* section common */
+.englishbold {font-family: 'Montserrat Alternates', sans-serif; font-weight:800; font-size:48px; line-height:60px;}
+.english {font-family:'Catamaran', sans-serif; font-size:24px;}
+.slogan {font-size:36px; line-height:48px; font-weight:normal; margin-top:50px;}
+.btn {
+    display:block;
+    box-shadow: 0 2px 0 #3f6f21;
+    background:-webkit-linear-gradient(top, #61bd4f 0, #5aac44 100%);
+    color:#ffffff;
+    letter-spacing:5px;
+    min-width:200px;
+    width:40%;
+    max-width:300px;
+    height:50px;
+    margin:20px auto 0;
+    font-size:24px;
+    font-weight:bold;
+    border:1px solid transparent;
+    border-radius:4px;
+    cursor:pointer;
+    padding:6px 12px;
+}
+.inner {padding-left:10%; padding-right:10%;}
+form {max-width:550px; width:100%; margin:50px auto 0;}
+input {margin:10px 0; padding:6px 12px; color:#555555; background-color:#ffffff; display:block; width:calc(100% - 24px); height:50px; font-size:24px; border:1px solid #cccccc; border-radius:6px;}
+
+
+/* 로그인 섹션 */
+#login {color:#101010; background-color:#f7DD00; padding-top:12%; padding-bottom:10%; max-height:700px;}
+#login .text {text-align:center;}
+#login .checkbox input {display:inline-block; width:20px; height:20px; vertical-align:middle;}
+#login .checkbox span {padding-left:10px; font-size:24px;}
+
+
+/* 회원가입 섹션*/
+#signup {padding-top:80px; padding-bottom:50px; color:#101010; min-height:950px; background-color: #fcb426; position:relative;}
+#signup .btn {margin-top:50px;}
+
+/* 로그인 페이지 */
+.board .wrap {padding:150px 3%; overflow-x:scroll; white-space:nowrap; min-height:700px; height:auto;}
+.board .wrap div {padding:20px; margin:5px; width:260px; height:60px; display:inline-block; border-radius:6px;}
+.board .wrap div:nth-child(odd) {background-color:#fcb426;}
+.board .wrap div:nth-child(even) {background-color:#f7DD00;}
+.board .wrap #add_board {background-color:#eeeeee; font-weight:bold;}
+/* .board #container{width:1300px;overflow-x:hidden;white-space:nowrap;} */
+.board #container .addlist {display:block; width:200px; height:30px;}
+.board #container .mylist {vertical-align:top; padding:15px; background-color:#eeeeee; height:auto; min-height:300px; width:300px;}
+.board #container .mycard {margin:5px 0 0 0; display:block;}
+
+
+/* 미디어쿼리 */
+@media screen and (max-width:690px) {
+    header {width:calc(100% - 6px); height:65px; padding:0 3px;}
+    header .logo {left:5px;}
+    header .logo img {width:85%;}
+    header nav {margin:15px 15px 0 0;}
+    header nav ul {top:65px;}
+    header nav li:first-child:before, header nav li:first-child:after {width:94%;}
+    .slogan {font-size:1.3em; margin-top:20px;}
+    .btn {font-size:18px;}
+    .englishbold {font-size:36px; line-height:48px;}
+    input {height:40px; font-size:18px;}
+    #login {min-height:650px; max-height:650px !important;}
+    #login .checkbox input {width:15px; height:15px;}
+    #login .checkbox span {font-size:18px;}
+    .board header {width:calc(100% - 6px); height:65px; padding:0 3px;}
+    .board header .logo {left:0; margin-left:5px;}
+	.board header h2 {top:65px;}
+}
+
+@media screen and (max-width:900px) {
+    header nav {width:35px; height:35px; background:url('../image/hamburger.png') no-repeat;}
+    header nav:hover {cursor:pointer; background-position-x:-40px;}
+    header nav a {background:none; text-indent:0; width:auto; padding:2px 0 0 15px;}
+    header nav a:hover {background-color:#080808;}
+    header nav ul {display:none; width:100%; padding-bottom:15px; position:absolute; left:0; z-index:100; background-color:#222222;}
+    header nav li {margin:0 3%; float:none;}
+    header nav li:first-child {margin-top:15px;}
+    header nav li:first-child:before {content:''; border-top:1px solid #121212; position:absolute; top:0;}
+    header nav li:first-child:after {content:''; border-top:1px solid #343434; position:absolute; top:1px;}
+}
+
+@media screen and (min-width:691px) and (max-width:900px) {
+    header {width:90%; padding:20px 5%;}
+    header .logo {left:5%;}
+    header nav ul {top:80px;}
+    header nav li {margin:0 6%;}
+    header nav li:first-child:before, header nav li:first-child:after {width:90%;}
+}
+
+@media screen and (min-width:901px) {
+    header nav ul {display:block !important;}
+}
+
+@media screen and (max-width:1000px) {
+    #login {padding-top:25%;}
+    #signup .slogan {font-size:22px; line-height:36px;}
+    #signup .img img {width:100%; margin-top:50px;}
+    #signup form {max-width:none;}
+}
+
+@media screen and (min-width:1001px) and (max-width:1500px) {
+    #login {padding-top:13%;}
+}
+
+@media screen and (min-width:1001px) {
+    #signup .text {width:45%; float:left; position:relative; z-index:100;}
+    #signup .slogan {font-size:1.5em; text-align:justify;}
+    #signup form {margin:0; float:right; width:50%; max-width:none; position:relative; z-index:100;}
+    #signup .img {position:absolute; bottom:12%; right:5%;}
+    
+    
+footer {background-color:#222222; color:#878787; text-align: center; }
+footer h3 { font-size: 20px;}
+.footer div { float: left; width: 33%; margin: 30px 0;}
+.footer2 li { display: inline;}
+.footer4 {clear: both; text-align:center; padding-bottom: 50px; }
+}

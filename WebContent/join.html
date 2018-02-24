@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function join() {
+            xmlHttp=new XMLHttpRequest();//ajax
+            xmlHttp.onreadystatechange=on_ready;
+            s=`join.jsp?myid=${join_id.value}&mypw=${join_pw.value}&myemail=${join_email.value}`;
+            xmlHttp.open("GET", s);
+            xmlHttp.send();//submit
+        }
+        function on_ready() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                mydiv.innerHTML=xmlHttp.responseText;
+            }
+        }
+    </script>
+</head>
+<body>
+	<div id="mydiv">표시</div>
+		ID : <input id="join_id" type="text" name="join_id"><br>
+		Password : <input id="join_pw" type="password" name="join_pw"><br>
+		Email : <input id="join_email" type="email" name="join_email"><br>
+	<button onclick="join()">button</button>
+</body>
+</html>

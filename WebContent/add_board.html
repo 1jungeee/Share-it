@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+#wrap>div {
+	display: inline;
+	margin: 100px;
+	background-color: yellow;
+}
+</style>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	var group_id = "kkk";
+
+	$(function() {
+		$("#add_board").click(
+				function() {
+					//sessionStorage.board_id = prompt("id : ");
+					sessionStorage.board_name = prompt("name : ");
+					$("#wrap").prepend(
+							"<div onclick=fn()>" + sessionStorage.board_name
+									+ "</div>");
+					$("#wrap").children().first().attr("id",
+							sessionStorage.board_id); //id -> db의 보드 id
+					$("#wrap").children().first().attr("name",
+							sessionStorage.board_name); //name -> db의 보드 name    
+
+					insert_board();
+				});
+
+		select_board();
+
+	});
+
+	function fn() {
+		$("#wrap").load("add_card.html");
+	}
+
+	function select_board() {
+		xmlHttp = new XMLHttpRequest()
+		/* 		xmlHttp.onreadystatechange = on_ready */
+		a = `add_board_select.jsp?html_group_id=${group_id}`
+		xmlHttp.open("GET", a)
+		xmlHttp.send();
+
+		xmlHttp.onreadystatechange = on_ready_json;
+	}
+
+	function insert_board() {
+		temp_a = sessionStorage.board_id;
+		temp_b = sessionStorage.board_name;
+
+		xmlHttp = new XMLHttpRequest()
+		s = `add_board_insert.jsp?html_group_id=${group_id}&html_board_id=${temp_a}&html_board_name=${temp_b}`
+		xmlHttp.open("GET", s)
+		xmlHttp.send()
+	}
+
+	function on_ready_json() {
+		if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+			s = xmlHttp.responseText
+			console.log(s)
+
+			myj = JSON.parse(s)
+			console.log(typeof (myj))
+			myj.forEach(function(v, i) {
+				$("#wrap")
+						.prepend("<div onclick=fn()>" + v.board_name + "</div>");
+
+				tr = mytable.insertRow()
+				c1 = tr.insertCell()
+				c2 = tr.insertCell()
+				c1.innerText = v.board_id;
+				c2.innerText = v.board_name;
+			})
+		}
+	}
+</script>
+
+</head>
+<body>
+	<div id="wrap">
+		<div id="add_board">add_board</div>
+	</div>
+	<table id="mytable" border="1">
+		<tr>
+			<th>board_id</th>
+			<th>board_name</th>
+		</tr>
+	</table>
+</body>
+</html>

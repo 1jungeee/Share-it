@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script>
+        function login() {
+            xmlHttp=new XMLHttpRequest();//ajax
+            xmlHttp.onreadystatechange=on_ready;
+            s=`login.jsp?id=${login_id.value}&pw=${login_pw.value}`;
+            xmlHttp.open("GET", s);
+            xmlHttp.send();//submit
+
+        }
+        function on_ready() {
+            if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                mydiv.innerHTML=xmlHttp.responseText;
+            }
+        }
+    </script>
+</head>
+<body>
+	<div id="mydiv">표시</div>
+		ID : <input id="login_id" type="text" name="login_id"><br>
+		Password : <input id="login_pw" type="password" name="login_pw"><br>
+	<button onclick="login()">button</button>
+</body>
+</html>
